@@ -1,0 +1,17 @@
+{
+  "name": "campus-planner",
+  "version": "1.0.0",
+  "description": "A browser-based university dashboard for courses, assignments, and GPA tracking.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "student",
+    "planner",
+    "university",
+    "javascript"
+  ],
+  "author": "N0rd9",
+  "license": "MIT"
+}
