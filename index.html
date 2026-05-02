@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Planner</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">University dashboard</p>
+          <h1 id="page-title">Campus Planner</h1>
+        </div>
+        <div class="summary-grid" aria-label="Academic summary">
+          <article>
+            <span id="course-count">0</span>
+            <p>Courses</p>
+          </article>
+          <article>
+            <span id="assignment-count">0</span>
+            <p>Open tasks</p>
+          </article>
+          <article>
+            <span id="gpa-value">0.00</span>
+            <p>Estimated GPA</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <aside class="panel input-panel" aria-label="Planner forms">
+          <div class="tabs" role="tablist" aria-label="Add data">
+            <button class="tab active" type="button" data-tab="course">Course</button>
+            <button class="tab" type="button" data-tab="assignment">Assignment</button>
+          </div>
+
+          <form id="course-form" class="form-section active">
+            <label>
+              Course name
+              <input id="course-name" type="text" placeholder="Data Structures" required />
+            </label>
+            <label>
+              Instructor
+              <input id="course-instructor" type="text" placeholder="Dr. Silva" required />
+            </label>
+            <div class="row">
+              <label>
+                Credits
+                <input id="course-credits" type="number" min="1" max="8" value="3" required />
+              </label>
+              <label>
+                Grade
+                <select id="course-grade" required>
+                  <option value="4.0">A</option>
+                  <option value="3.7">A-</option>
+                  <option value="3.3">B+</option>
+                  <option value="3.0">B</option>
+                  <option value="2.7">B-</option>
+                  <option value="2.3">C+</option>
+                  <option value="2.0">C</option>
+                  <option value="1.0">D</option>
+                  <option value="0.0">F</option>
+                </select>
+              </label>
+            </div>
+            <button class="primary-btn" type="submit">Add course</button>
+          </form>
+
+          <form id="assignment-form" class="form-section">
+            <label>
+              Task title
+              <input id="assignment-title" type="text" placeholder="Algorithms report" required />
+            </label>
+            <label>
+              Related course
+              <select id="assignment-course" required></select>
+            </label>
+            <div class="row">
+              <label>
+                Due date
+                <input id="assignment-due" type="date" required />
+              </label>
+              <label>
+                Priority
+                <select id="assignment-priority" required>
+                  <option>High</option>
+                  <option>Medium</option>
+                  <option>Low</option>
+                </select>
+              </label>
+            </div>
+            <button class="primary-btn" type="submit">Add task</button>
+          </form>
+        </aside>
+
+        <section class="panel main-panel" aria-label="Planner data">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Current semester</p>
+              <h2>Courses</h2>
+            </div>
+            <button id="seed-demo" class="ghost-btn" type="button">Load demo</button>
+          </div>
+          <div id="course-list" class="card-list"></div>
+
+          <div class="section-heading assignments-heading">
+            <div>
+              <p class="eyebrow">Deadlines</p>
+              <h2>Assignments</h2>
+            </div>
+            <button id="clear-done" class="ghost-btn" type="button">Clear done</button>
+          </div>
+          <div id="assignment-list" class="card-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="course-template">
+      <article class="data-card">
+        <div>
+          <h3></h3>
+          <p></p>
+        </div>
+        <div class="metric"></div>
+        <button class="icon-btn" type="button" aria-label="Delete course">x</button>
+      </article>
+    </template>
+
+    <template id="assignment-template">
+      <article class="data-card assignment-card">
+        <label class="checkline">
+          <input type="checkbox" />
+          <span></span>
+        </label>
+        <p></p>
+        <strong></strong>
+        <button class="icon-btn" type="button" aria-label="Delete assignment">x</button>
+      </article>
+    </template>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>
