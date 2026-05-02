@@ -131,7 +131,7 @@ function renderCourses() {
   state.courses.forEach((course) => {
     const node = template.content.firstElementChild.cloneNode(true);
     node.querySelector("h3").textContent = course.name;
-    node.querySelector("p").textContent = `${course.instructor} - ${course.credits} credits`;
+    node.querySelector("p").textContent = `${course.instructor} · ${course.credits} credits`;
     node.querySelector(".metric").textContent = gradeLabel(course.grade);
     node.querySelector("button").addEventListener("click", () => deleteCourse(course.id));
     elements.courseList.append(node);
@@ -157,7 +157,7 @@ function renderAssignments() {
       saveAndRender();
     });
     node.querySelector(".checkline span").textContent = assignment.title;
-    node.querySelector("p").textContent = `${course?.name || "Unknown course"} - due ${formatDate(assignment.due)}`;
+    node.querySelector("p").textContent = `${course?.name || "Unknown course"} · due ${formatDate(assignment.due)}`;
     const badge = node.querySelector("strong");
     badge.textContent = assignment.priority;
     badge.className = assignment.priority.toLowerCase();
